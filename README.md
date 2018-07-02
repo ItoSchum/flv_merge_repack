@@ -6,7 +6,7 @@
 - A sorted original fragment videos' filelist will be left.
 
 ## Requirement
-1. `sh` and `ffmpeg` are required.
+1. `bash` and `ffmpeg` are required.
 2. The flv videos which are encoded by H.264.
 3. Designed specifically for macOS App **Bilibili for Mac**. It may be not compatible for other Apps.
 
