@@ -8,7 +8,7 @@
 ## Requirement
 1. `bash` and `ffmpeg` are required.
 2. Only compatible with flv videos which are encoded by H.264.
-3. Designed specifically for macOS App **Bilibili for Mac**. It may be not compatible with other Apps' downloads.
+3. Designed specifically for macOS App **Bilibili for Mac**. It may be not compatible with other filename formats.
 
 ## Usage
 1. Put your flv fragment videos in `[some_directory]`.
