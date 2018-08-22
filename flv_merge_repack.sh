@@ -19,7 +19,7 @@ VerboseMode_Low='v'
 
 
 # StartUp
-read -p "Merge Mode: (1: Single-Pack; 2: Multi-Pack): " merge_mode
+read -p "Merge Mode: (1 - Single-Pack; 2 - Multi-Pack): " merge_mode
 read -p "OriginalFileKeep (Y/N)": file_mode
 
 if [ $file_mode == $OriginalFileKeepOn ]; then
