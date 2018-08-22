@@ -30,4 +30,4 @@
 
 	
 ## Attention
-- Other `.txt .flv .mp4` files in the script-running folder may be deleted unintenedly.
+- Other `.txt, .flv, .mp4` files in the script-running folder may be deleted unintenedly.
