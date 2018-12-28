@@ -9,23 +9,22 @@ echo "current dir: $myPath"
 SinglePackMode=1
 MultiPackMode=2
 
-KeepOriginalFile_Cap='Y'
-KeepOriginalFile_Low='y'
-#KeepOriginalFile_case_insensitive=$(echo $OriginalFileKeepOn | tr [a-z] [A-Z]) 
+KeepOriginalFile=$(echo $OriginalFileKeepOn | tr "[a-z]" "[A-Z]") 
 
-VerboseMode_Cap='V'
-VerboseMode_Low='v'
-#VerboseMode_case_insensitive=$(echo $VerboseMode | tr [a-z] [A-Z]) 
+VerboseMode=$(echo $VerboseMode | tr "[a-z]" "[A-Z]") 
 
 
 # StartUp
-read -p "Merge Mode: (1 - Single-Pack; 2 - Multi-Pack): " merge_mode
+read -p "Merge Mode: (1 - Single-Pack, 2 - Multi-Pack): " merge_mode
 read -p "OriginalFileKeep (Y/N)": file_mode
 
-if [ $file_mode == $OriginalFileKeepOn ]; then
+$file_mode=$(echo $file_mode | tr "[a-z]" "[A-Z]") 
+if [ $file_mode == 'Y' ]; then
 	echo "Confirmed Mode: $merge_mode with OriginalFileKeep On"
-else
+else if [ $file_mode == 'N' ]; then
 	echo "Confirmed Mode: $merge_mode with OriginalFileKeep Off"
+else if [ $file_mode == 'V' ]; then
+	echo "Confirmed Mode: $merge_mode with OriginalFileKeep On in VerboseMode"
 fi
 
 # Find all the flv fragment videos' filenames in current dir
@@ -89,12 +88,12 @@ fi
 rm ./*.txt-e
 rm ./*-*.mp4
 
-if [ $file_mode != $VerboseMode_Cap -a $file_mode != $VerboseMode_Low ]; then 
+if [ $file_mode != 'V' ]; then 
 	
 	rm ./pack_*.txt
 	rm ./filelist*.txt
 
-	if [ $file_mode != $KeepOriginalFile_Cap -a $file_mode != $KeepOriginalFile_Low ]; then
+	if [ $file_mode != 'Y' ]; then
 
 		# Remove the original files
 		rm ./*-*.flv
