@@ -9,21 +9,20 @@ echo "current dir: $myPath"
 SinglePackMode=1
 MultiPackMode=2
 
-KeepOriginalFile=$(echo $OriginalFileKeepOn | tr "[a-z]" "[A-Z]") 
-
-VerboseMode=$(echo $VerboseMode | tr "[a-z]" "[A-Z]") 
-
+KEEP_ORIGINAL='Y'
+NOT_KEEP_ORIGINAL='N'
+VERBOSE_MODE='V'
 
 # StartUp
 read -p "Merge Mode: (1 - Single-Pack, 2 - Multi-Pack): " merge_mode
-read -p "OriginalFileKeep (Y/N)": file_mode
+read -p "OriginalFileKeep (Y/N)": file_mode_input
 
-$file_mode=$(echo $file_mode | tr "[a-z]" "[A-Z]") 
-if [ $file_mode == 'Y' ]; then
+file_mode=$(echo $file_mode_input | tr "[a-z]" "[A-Z]") 
+if [ $file_mode == $KEEP_ORIGINAL ]; then
 	echo "Confirmed Mode: $merge_mode with OriginalFileKeep On"
-else if [ $file_mode == 'N' ]; then
+else if [ $file_mode == $NOT_KEEP_ORIGINAL ]; then
 	echo "Confirmed Mode: $merge_mode with OriginalFileKeep Off"
-else if [ $file_mode == 'V' ]; then
+else if [ $file_mode == $VERBOSE_MODE ]; then
 	echo "Confirmed Mode: $merge_mode with OriginalFileKeep On in VerboseMode"
 fi
 
@@ -88,12 +87,12 @@ fi
 rm ./*.txt-e
 rm ./*-*.mp4
 
-if [ $file_mode != 'V' ]; then 
+if [ $file_mode != VERBOSE_MODE ]; then 
 	
 	rm ./pack_*.txt
 	rm ./filelist*.txt
 
-	if [ $file_mode != 'Y' ]; then
+	if [ $file_mode != KEEP_ORIGINAL ]; then
 
 		# Remove the original files
 		rm ./*-*.flv
