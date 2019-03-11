@@ -15,7 +15,7 @@ VERBOSE_MODE='V'
 
 # StartUp
 read -p "Merge Mode: (1 - Single-Pack, 2 - Multi-Pack): " merge_mode
-read -p "OriginalFileKeep (Y/N)": file_mode_input
+read -p "OriginalFileKeep (Y/N): " file_mode_input
 
 file_mode=$(echo $file_mode_input | tr "[a-z]" "[A-Z]") 
 if [ $file_mode == $KEEP_ORIGINAL ]; then
